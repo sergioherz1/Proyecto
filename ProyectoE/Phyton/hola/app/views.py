@@ -30,3 +30,32 @@ def guardartrabajador(request):
 def consulta(request):
     registros = models.persona.objects.all()
     return render(request,'consultatrab.html',{"registros":registros}) 
+
+#CONTRATOS
+
+def consulta_Paquetes(request):
+    registrosP = models.persona.objects.all()
+    return render(request,'Consultar_Paquetes.html')
+
+def modificacion_Paquetes(request):
+    if 'idPaquete' in request.POST:
+        registrosP = models.persona.objects.get(idPaquete=request.POST['idPaquete'])  
+        return render(request,'Modificar_Paquetes.html',{'reg':registrosP})
+    else:
+        return redirect(request,'consultar_Paquets.html')
+
+def editar_Paquetes(request):
+    if 'idPaquete' in request.POST:
+        per = models.persona.objects.get(idPaquete=request.POST['idPaquete'])
+        return render(request,'Modificar_Paquetes.html',{'reg':per})
+    else:
+        return redirect('Consultar_Paquetes.html')
+    
+    def modificar_Paquetes(request):
+        if 'idPaquete' in request.POST and 'nombre' in request.POST and 'costo' in request.POST and 'descripcion' in request.POST:
+            p = models.persona(idPaquete = request.POST['idPaquete'])
+            p.nombre = request.POST['nombre']
+            p.costo = request.POST['costo']
+            p.descripcion['descripcion']
+            p.save
+        return redirect('Consultar_Paquetes.html'.{'op':'Actualizacion realizada'})
