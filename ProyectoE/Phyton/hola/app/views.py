@@ -33,6 +33,15 @@ def consulta(request):
 
 #CONTRATOS
 
+def guardaPaquete(request):
+    if 'idPaquete' in request.POST and 'nombre' in request.POST and 'costo' in request.POST and 'descripcion' in request.POST:
+        idPaquete = request.POST['idPaquete']
+        nombre = request.POST['nombre']
+        costo = request.POST['costo']
+        descripcion = request.POST['descripcion']
+        p = models.persona(idPaquete = idPaquete,nombre = nombre,costo = costo,descripcion = descripcion)
+        p.save()
+
 def consulta_Paquetes(request):
     registrosP = models.persona.objects.all()
     return render(request,'Consultar_Paquetes.html')
