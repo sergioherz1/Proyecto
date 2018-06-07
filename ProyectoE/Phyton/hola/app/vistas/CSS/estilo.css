@@ -1,0 +1,26 @@
+body{
+    background: url(HDC-VOL-CONSOLA-1.jpg) #000;
+    background-size: cover;
+    color: #fff;
+    
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(50, 60, 68)
+}
+li{
+    float: left;
+}
+li a{
+    display:block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+li a:hover{
+    background-color: black;
+}

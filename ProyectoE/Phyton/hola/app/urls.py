@@ -4,14 +4,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('guardarPersona',views.guardarPersona),
-    path('',views.index),
-    path('nombre',views.nombre),
-    path('sumar',views.sumar),
-    path('esclava',views.esclava),
+    path('guardartrabajador',views.guardartrabajador),
     path('consulta',views.consulta),
-    path('modificar',views.modificar),
-    path('editar',views.modificacion)
+    path('index',views.index),
+    path('trabajador',views.trabajador),
+    
+    
+   
     #url(r'^',include('app.urls')),
    # path('admin/', admin.site.urls),
 ]

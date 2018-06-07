@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CONSULTA TRABAJADOR</title>
+</head>
+<body>
+    <table>
+    <thead>
+        <th>Id persona</th>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Edad</th>
+        <th>Direccion</th>
+        <th>Operacion</th>
+    </thead>
+
+    <tbody>
+        {% for fila in registros %}
+            <br>
+            <td>{{fila.idPersona}}</td> 
+            <td>{{fila.nombre}}</td>
+            <td>{{fila.telefono}} </td>
+            <td>{{fila.edad}}</td>
+            <td>{{fila.direccion}} </td> 
+            <td></td>
+            <form action="editar" method="POST">
+                {% csrf_token %}
+                <input type="text" name="idPersona" value="{{fila.idPersona}}" type="hidden">
+                <button>editar</button>
+            </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
