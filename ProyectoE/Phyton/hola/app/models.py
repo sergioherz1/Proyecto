@@ -5,6 +5,12 @@ from django.db import models
 #Create your models here
     #COMANDO PARA PROBAR QUE ESTO FUNCIONE
     #python manage.py check app
+class trabajadores(models.Model):
+    idtrabajador=models.IntegerField(primary_key=True)
+    nombre = models.CharField(max_length=50)
+    telefono = models.IntegerField()
+    edad = models.IntegerField()
+    Direccion = models.CharField(max_length=50)
 
 class paquetes(models.Model):
     idpaq=models.IntegerField(primary_key=True)
@@ -18,12 +24,6 @@ class inventario(models.Model):
     tipo = models.CharField(max_length=50)
     status = models.CharField(max_length=50)
 
-class trabajadores(models.Model):
-    idtrabajador=models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length=50)
-    telefono = models.IntegerField()
-    edad = models.IntegerField()
-    Direccion = models.CharField(max_length=50)
 
 class contratos(models.Model):
     idcon=models.IntegerField(primary_key=True)

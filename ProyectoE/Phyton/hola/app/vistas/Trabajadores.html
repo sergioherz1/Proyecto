@@ -8,24 +8,33 @@
 <body>
     <form action="guardartrabajador" method="POST">
         {% csrf_token %}
-        <label for="idPersona">ID persona</label>
-        <input type="number" name="idPersona" maxlength="15" required>
+
+
+        <h3>REGISTRO</h3>
+        <label for="idtrabajador">ID persona</label>
+        <br>
+        <input type="number" name="idtrabajador" maxlength="15" required>
         <br>
         <label for="nombre">Nombre:</label>
+        <br>
         <input type="text" name="nombre" maxlength="50" required>
         <br>
         <label for="telefono">Telefono:</label>
+        <br>
         <input type="number" name="telefono" maxlength="12" required>
         <br>
         <label for="edad">Edad:</label>
+        <br>
         <input type="number" name="edad" maxlength="50" required>
         <br>
-        <label for="direccion">Direccion:</label>
-        <input type="text" name="direccion" maxlength="50" required>
+        <label for="Direccion">Direccion:</label>
+        <br>
+        <input type="text" name="Direccion" maxlength="50" required>
+        <br>
         <br>
         <button>GUARDAR DATOS</button>
         <h1>{{msg}}</h1>
     </form>
-
+    <form action="trabajador"><li><button>REGRESAR</button> </li></form>
 </body>
 </html>
