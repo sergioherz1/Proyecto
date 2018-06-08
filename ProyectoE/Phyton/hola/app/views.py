@@ -29,6 +29,7 @@ def guardartrabajador(request):
     else:
         return render(request,'Trabajadores.html',{'msg': 'no se puede realizar el registros'})
 def consulta(request):
+<<<<<<< HEAD
     registros = models.trabajadores.objects.all()
     return render(request,'consultatrab.html',{"registros":registros}) 
 
@@ -56,3 +57,36 @@ def eliminar(request):
         per = models.trabajadores.objects.get(idtrabajador=request.POST['idtrabajador'])
         per.delete()
     return redirect('/hola/consulta')
+=======
+    registros = models.persona.objects.all()
+    return render(request,'consultatrab.html',{"registros":registros}) 
+
+#CONTRATOS
+
+def consulta_Paquetes(request):
+    registrosP = models.persona.objects.all()
+    return render(request,'Consultar_Paquetes.html')
+
+def modificacion_Paquetes(request):
+    if 'idPaquete' in request.POST:
+        registrosP = models.persona.objects.get(idPaquete=request.POST['idPaquete'])  
+        return render(request,'Modificar_Paquetes.html',{'reg':registrosP})
+    else:
+        return redirect(request,'consultar_Paquets.html')
+
+def editar_Paquetes(request):
+    if 'idPaquete' in request.POST:
+        per = models.persona.objects.get(idPaquete=request.POST['idPaquete'])
+        return render(request,'Modificar_Paquetes.html',{'reg':per})
+    else:
+        return redirect('Consultar_Paquetes.html')
+    
+    def modificar_Paquetes(request):
+        if 'idPaquete' in request.POST and 'nombre' in request.POST and 'costo' in request.POST and 'descripcion' in request.POST:
+            p = models.persona(idPaquete = request.POST['idPaquete'])
+            p.nombre = request.POST['nombre']
+            p.costo = request.POST['costo']
+            p.descripcion['descripcion']
+            p.save
+        return redirect('Consultar_Paquetes.html'.{'op':'Actualizacion realizada'})
+>>>>>>> f8128c9881d07e5af95c6329c9de83c1f120a65c

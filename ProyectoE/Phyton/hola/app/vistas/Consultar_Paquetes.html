@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consultas Paquetes</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Id paquete</th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th>Descripción</th>
+        </thead>
+        
+        <tbody>
+            {% for fila in registros %}
+            <tr>
+            <br>
+                <td>{{fila.idPaquete}}</td>
+                <td>{{fila.nombre}}</td>
+                <td>{{fila.costo}}</td>
+                <td>{{fila.descripcion}}</td>
+                <td>
+                    <form action="{{fila.idPaquete}}" action="Eliminar_Paquetes" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{fila.idPaquete}}" name="idPaquete">
+                        <button type="button" onclick="Eliminar_Paquete('{{fila.idPaquete}}','{{fila.nombre}}')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

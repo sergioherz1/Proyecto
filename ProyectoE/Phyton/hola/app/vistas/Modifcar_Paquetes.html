@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modificar Paquetes</title>
+</head>
+<body>
+    <form action="modificar_Paquetes" method="POST">
+        {% csrf_token %}
+        <input type="text" name="id" value="{{reg.idPaquete}}">
+        <input type="text" name="nombre" value="{{reg.nombre}}">
+        <input type="number" name="costo" value="{{reg.costo}}">
+        <input type="text" name="descripción" value="{{reg.descripción}}">
+        <input type="text" value="enviar">
+    </form>
+</body>
+</html>
