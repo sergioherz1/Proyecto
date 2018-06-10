@@ -9,10 +9,10 @@
 <body>
     <form action="modificar_Paquetes" method="POST">
         {% csrf_token %}
-        <input type="text" name="id" value="{{reg.idPaquete}}">
+        <input type="text" name="idpaq" value="{{reg.idpaq}}">
         <input type="text" name="nombre" value="{{reg.nombre}}">
-        <input type="number" name="costo" value="{{reg.costo}}">
-        <input type="text" name="descripción" value="{{reg.descripción}}">
+        <input type="number" name="edad" value="{{reg.edad}}">
+        <input type="text" name="descripción" value="{{reg.Descripción}}">
         <input type="text" value="enviar">
     </form>
 </body>

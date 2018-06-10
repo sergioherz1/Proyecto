@@ -19,15 +19,15 @@
             {% for fila in registros %}
             <tr>
             <br>
-                <td>{{fila.idPaquete}}</td>
+                <td>{{fila.idpaq}}</td>
                 <td>{{fila.nombre}}</td>
-                <td>{{fila.costo}}</td>
-                <td>{{fila.descripcion}}</td>
+                <td>{{fila.nombre}}</td>
+                <td>{{fila.Descripcion}}</td>
                 <td>
-                    <form action="{{fila.idPaquete}}" action="Eliminar_Paquetes" method="POST">
+                    <form action="{{fila.idpaq}}" action="Eliminar_Paquetes" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" value="{{fila.idPaquete}}" name="idPaquete">
-                        <button type="button" onclick="Eliminar_Paquete('{{fila.idPaquete}}','{{fila.nombre}}')">Eliminar</button>
+                        <input type="hidden" value="{{fila.idpaq}}" name="idPaquete">
+                        <button type="button" onclick="Eliminar_Paquete('{{fila.idpaq}}','{{fila.nombre}}','{{fila.edad}}','{{fila.Direccion}}')">Eliminar</button>
                     </form>
                 </td>
             </tr>
