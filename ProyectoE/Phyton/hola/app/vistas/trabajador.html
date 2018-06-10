@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>TRABAJADORES</title>
-    <link rel="stylesheet" href="CSS/t.css">
+    {% load static from staticfiles%}
+   <link rel="stylesheet" href="{% static 'CSS/t.css' %} ">
 </head>
 <body>
     <ul>
-      <li> <a href="Trabajadores.html">REGISTRO DE TRABAJADORES</a></li>
-      <li><a href="consultatrab.html">CONSULTA DE TRABAJADORES</a></li>
-      <li><a href="Inventario.html">MODIFICACION DE TRABAJADORES</a></li>
-      <li><a href="Trabajador.html">ELIMINACION DE TRABAJADORES</a></li>  
+
+      <form action="guardartrabajador"><li><button>REGISTRO </button> </li></form>
+      <form action="consulta"><li><button>CONSULTA</button> </li></form>
+      <form action="index"><li><button>REGRESAR</button> </li></form>
     </ul>
     
 </body>
 </html>
+
+

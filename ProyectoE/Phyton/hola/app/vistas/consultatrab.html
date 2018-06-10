@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>CONSULTA TRABAJADOR</title>
+    <script>
+        function eliminar(id,nom){
+            var res = confirm('Confirma eliminar a '+nom+' con el ID '+id);
+            if(res){
+                var formulario = document.getElementById(id);
+                formulario.submit();
+            }
+        }
+    </script>
 </head>
 <body>
     <table>
     <thead>
-        <th>Id persona</th>
+        <th>Id Trabajador</th>
         <th>Nombre</th>
         <th>Telefono</th>
         <th>Edad</th>
@@ -18,21 +27,30 @@
     <tbody>
         {% for fila in registros %}
             <br>
-            <td>{{fila.idPersona}}</td> 
+            <td>{{fila.idtrabajador}}</td> 
             <td>{{fila.nombre}}</td>
             <td>{{fila.telefono}} </td>
             <td>{{fila.edad}}</td>
-            <td>{{fila.direccion}} </td> 
-            <td></td>
-            <form action="editar" method="POST">
+            <td>{{fila.Direccion}} </td> 
+            <td>
+            <form action="modificacion/" method="POST">
                 {% csrf_token %}
-                <input type="text" name="idPersona" value="{{fila.idPersona}}" type="hidden">
+                <input name="idtrabajador" value="{{fila.idtrabajador}}" type="hidden">
                 <button>editar</button>
             </form>
             </td>
+            <td>
+                <form id="{{fila.idtrabajador}}" action="/hola/eliminar" method="POST">
+                    {% csrf_token %}
+                    <input name="idtrabajador" value="{{fila.idtrabajador}}" type="hidden">
+                    <button type="button" onclick="eliminar('{{fila.idtrabajador}}','{{fila.nombre}}','{{fila.telefono}}','{{fila.edad}}','{{fila.Direccion}}')">Eliminar</button>
+                </form>
+            </td>
         </tr>
+
         {% endfor %}
     </tbody>
     </table>
+
 </body>
 </html>

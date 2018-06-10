@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilousr.css' %}">
+</head>
+<body>
+
+    <h3>MODIFICA TRABAJADOR</h3>
+
+    <form action="/hola/modificar/" method="POST">
+        {% csrf_token %}
+        <input type="number" name="idtrabajador" value="{{reg.idtrabajador}}"  required>
+        <br>
+        <br>
+        <input type="text" name="nombre" value="{{reg.nombre}}" maxlength="15" required>
+        <br>
+        <br>
+        <input type="number" name="telefono" value="{{reg.telefono}}" required>
+        <br>
+        <br>
+        <input type="number" name="edad" value="{{reg.edad}}" maxlength="15" required>
+        <br>
+        <br>
+        <input type="text" name="Direccion" value="{{reg.Direccion}}" maxlength="30" required>
+        <br>     
+        <br>
+        <input type="submit" value="Guardar">
+        
+                   
+    </form>
+</body>
+</html>

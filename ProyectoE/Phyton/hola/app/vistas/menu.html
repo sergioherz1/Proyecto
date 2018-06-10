@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>MENU</title>
-    <link href="CSS/estilo.css">
+    {% load static from staticfiles%}
+    <link rel="stylesheet" href="{% static 'CSS/estilo.css' %} ">
+
 </head>
 <body>
     <ul>
+       
       <li> <a href="Contratos.html">Contratos</a></li>
       <li><a href="Paquetes.html">Paquetes</a></li>
       <li><a href="Inventario.html">Inventario</a></li>
-      <li><a href="trabajador.html">Trabajadores</a></li>  
+      <form action="trabajador"><li><button style="color: white; background-color: black">Trabajadores</button> </li></form>
     </ul>
     
 </body>
