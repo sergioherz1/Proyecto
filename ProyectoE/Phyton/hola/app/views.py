@@ -64,38 +64,41 @@ def eliminar(request):
 #CONTRATOS
 
 def guardaPaquete(request):
-    if 'idPaquete' in request.POST and 'nombre' in request.POST and 'costo' in request.POST and 'descripcion' in request.POST:
-        idPaquete = request.POST['idPaquete']
+    if 'idpaq' in request.POST and 'nombre' in request.POST and 'edad' in request.POST and 'Descripcion' in request.POST:
+        idpaq = request.POST['idpaq']
         nombre = request.POST['nombre']
-        costo = request.POST['costo']
-        descripcion = request.POST['descripcion']
-        p = models.persona(idPaquete = idPaquete,nombre = nombre,costo = costo,descripcion = descripcion)
+        edad = request.POST['edad']
+        Descripcion = request.POST['Descripcion']
+        p = models.persona(idPaquete = idpaq,nombre = nombre,edad = costo,Descripcion = descripcion)
         p.save()
+    return render(request,'Paquetes.html',{'msg': 'Registro realizado corretamente'})
+    else:
+        return render(request,'Paquetes.html',{'msg': 'no se puede realizar el registros'})
 
 def consulta_Paquetes(request):
     registrosP = models.persona.objects.all()
-    return render(request,'Consultar_Paquetes.html')
+    return render(request,'Consultar_Paquetes.html',{"registros":registrosP})
 
 def modificacion_Paquetes(request):
-    if 'idPaquete' in request.POST:
-        registrosP = models.persona.objects.get(idPaquete=request.POST['idPaquete'])  
+    if 'ipaq' in request.POST:
+        registrosP = models.persona.objects.get(idPaquete=request.POST['idpaq'])  
         return render(request,'Modificar_Paquetes.html',{'reg':registrosP})
     else:
         return redirect(request,'consultar_Paquets.html')
 
 def editar_Paquetes(request):
-    if 'idPaquete' in request.POST:
-        per = models.persona.objects.get(idPaquete=request.POST['idPaquete'])
+    if 'idpaq' in request.POST:
+        per = models.persona.objects.get(idPaquete=request.POST['idpaq'])
         return render(request,'Modificar_Paquetes.html',{'reg':per})
     else:
         return redirect('Consultar_Paquetes.html')
     
     def modificar_Paquetes(request):
-        if 'idPaquete' in request.POST and 'nombre' in request.POST and 'costo' in request.POST and 'descripcion' in request.POST:
-            p = models.persona(idPaquete = request.POST['idPaquete'])
+        if 'idapq' in request.POST and 'nombre' in request.POST and 'edad' in request.POST and 'Descripcion' in request.POST:
+            p = models.persona(idPaquete = request.POST['idpaq'])
             p.nombre = request.POST['nombre']
-            p.costo = request.POST['costo']
-            p.descripcion['descripcion']
+            p.edad = request.POST['edad']
+            p.descripcion['Descripcion']
             p.save
         return redirect('Consultar_Paquetes.html'.{'op':'Actualizacion realizada'})
 >>>>>>> f8128c9881d07e5af95c6329c9de83c1f120a65c

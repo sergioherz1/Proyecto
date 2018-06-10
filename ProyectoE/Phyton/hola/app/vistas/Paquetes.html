@@ -10,17 +10,17 @@
 <body>
     <form action="guardaPaquete" method="POST">
         {% csrf_token %}
-        <label for="idPersona">ID Paquete</label>
-        <input type="text" name="idPersona" maxlength="20" required> 
+        <label for="idpaq">ID Paquete</label>
+        <input type="text" name="idpaq" maxlength="20" required> 
         <br>
         <label for="nombre">Nombre</label>
-        <input type="number" name="nombre" maxlength="40" required>
+        <input type="text" name="nombre" maxlength="40" required>
         <br>
-        <label for="costo">Costo</label>
-        <input type="number" name="costo" required>
+        <label for="edad">Costo</label>
+        <input type="number" name="edad" required>
         <br>
-        <label for="descripcion">descripcion</label>
-        <input type="text" name="descripcion" maxlength="100" required>
+        <label for="Descripcion">descripcion</label>
+        <input type="text" name="Descripcion" maxlength="100" required>
         <br>
         <button>GUARDAR</button>
         <h1>{{msg}}</h1>
