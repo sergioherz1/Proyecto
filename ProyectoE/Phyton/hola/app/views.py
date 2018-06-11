@@ -32,7 +32,6 @@ def guardartrabajador(request):
     else:
         return render(request,'Trabajadores.html',{'msg': 'no se puede realizar el registros'})
 def consulta(request):
-<<<<<<< HEAD
     registros = models.trabajadores.objects.all()
     return render(request,'consultatrab.html',{"registros":registros}) 
 
@@ -60,7 +59,6 @@ def eliminar(request):
         per = models.trabajadores.objects.get(idtrabajador=request.POST['idtrabajador'])
         per.delete()
     return redirect('/hola/consulta')
-=======
     registros = models.persona.objects.all()
     return render(request,'consultatrab.html',{"registros":registros}) 
 
@@ -104,7 +102,6 @@ def editar_Paquetes(request):
             p.descripcion['Descripcion']
             p.save
         return redirect('Consultar_Paquetes.html'.{'op':'Actualizacion realizada'})
->>>>>>> f8128c9881d07e5af95c6329c9de83c1f120a65c
 
 def contratos (request):
     lista = models.paquetes.objects.all()
