@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contratos</title>
+</head>
+<body>
+    <form action="guardarContrato" method="POST">
+        {% csrf_token %}
+
+        <h3>REGISTRO</h3>
+        <label for="id_con">ID Contrato:</label>
+        <br>
+        <input type="number" name="id_con" maxlength="15" required>
+        <br>
+        <label for="Nombre_persona">Nombre:</label>
+        <br>
+        <input type="text" name="Nombre_persona" maxlength="50" required>
+        <br>
+        <label for="Dirección">Dirección:</label>
+        <br>
+        <input type="text" name="Dirección" maxlength="50" required>
+        <br>
+        <label for="Telefono">Telefono:</label>
+        <br>
+        <input type="number" name="Telefono" maxlength="15" required>
+        <br>
+        <label for="Fecha">Fecha:</label>
+        <br>
+        <input type="date" name="Fecha"  required>
+        <br>
+        <label for="id_paq_id">Paquete:</label>           
+        <select name="id_paq_id">
+           {% for x in lista %}
+           <option value="{{x.idpaq}}">{{x.nombre}}</option>
+           {% endfor %}
+        </select>
+        <br>
+
+        <button>GUARDAR DATOS</button>
+        
+        <h1>{{msg}}</h1>
+  
+    </form>
+    <form action="contratos"><button>Regresar</button></form>
+</body>
+</html>

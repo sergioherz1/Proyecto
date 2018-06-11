@@ -26,9 +26,9 @@ class inventario(models.Model):
 
 
 class contratos(models.Model):
-    idcon=models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length=50)
-    direccion = models.CharField(max_length=50)
-    telefono = models.IntegerField()
-    fecha = models.IntegerField()
-    idpaq = models.ForeignKey(paquetes,on_delete=models.CASCADE)
+    id_con=models.IntegerField(primary_key=True)
+    Nombre_persona = models.CharField(max_length=50)
+    Dirección = models.CharField(max_length=50)
+    Telefono = models.IntegerField()
+    Fecha = models.IntegerField()
+    id_paq_id = models.ForeignKey(paquetes,on_delete=models.CASCADE)

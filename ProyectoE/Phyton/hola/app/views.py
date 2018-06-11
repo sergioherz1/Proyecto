@@ -15,6 +15,9 @@ def trabajador(request):
 def paquetes(request):
     return render(request,'Paquetes.html')
 
+def contratos(request):
+    return render(request,'guardarContratos.html')
+
 
 def guardartrabajador(request):
     if 'idtrabajador' in request.POST and 'nombre' in request.POST and 'telefono' in request.POST and 'edad'in request.POST and 'Direccion' in request.POST:
@@ -102,3 +105,21 @@ def editar_Paquetes(request):
             p.save
         return redirect('Consultar_Paquetes.html'.{'op':'Actualizacion realizada'})
 >>>>>>> f8128c9881d07e5af95c6329c9de83c1f120a65c
+
+def contratos (request):
+    lista = models.paquetes.objects.all()
+    return render(request, 'guardarContrato.html', {'lista': lista})
+
+def guardarContrato(request):
+    if 'id_con' in request.POST and 'Nombre_persona' in request.POST and 'Direccion' in request.POST and 'Telefono' in request.POST and 'fecha' in request.POST and 'id_paq_id' in request.POST:
+        id_con = request.POST['id_con']
+        Nombre_persona = request.POST['Nombre_persona']
+        Direccion = request.POST['Direccion']
+        Telefono = request.POST['Telefono']
+        Fecha = request.POST['Fecha']
+        id_paq_id = request.POST['id_paq_id']
+        c = models.contratos(id_con=id_con, Nombre_persona=Nombre_persona,Direccion=Direccion,Telefono=Telefono,Fecha=Fecha,id_paq_id=id_paq_id)
+        c.save()
+        return render(request,'guardarContrato.html',{'msg': 'Registro realizado corretamente'})
+    else:
+        return render(request,'guardarContrato.html',{'msg': 'no se puede realizar el registros'})
